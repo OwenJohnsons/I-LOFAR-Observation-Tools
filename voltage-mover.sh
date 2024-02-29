@@ -37,3 +37,6 @@ destination_directory="$selected_drive/data/observations"
 
 # Use rsync to move .zst files while preserving directory structure
 rsync -a --progress --remove-source-files --include='*/' --include='*.zst' --exclude='*' "$source_directory" "$destination_directory"
+
+# Remove any folders that are empty
+find "$destination_directory" -type d -empty -delete
