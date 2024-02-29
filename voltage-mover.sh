@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source_directory="./"
+source_directory="/mnt/ucc1_recording2/data/observations"
 
 # Get list of mounted drives with more than 1 TB 
 drives=$(df -h | awk '$4 ~ /^[1-9][0-9]*\.[0-9]+T/ || $4 ~ /^[0-9]+T/' | grep -vE '^Filesystem|tmpfs|cdrom' | awk '{print $6}')
