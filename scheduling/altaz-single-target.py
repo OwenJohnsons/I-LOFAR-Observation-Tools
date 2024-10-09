@@ -11,7 +11,8 @@ import astropy.units as u
 import numpy as np
 import argparse
 import os 
-import scienceplots; plt.style.use(['science', 'no-latex'])
+# import scienceplots; plt.style.use(['science', 'no-latex'])
+import smplotlib
 
 from astropy.coordinates import EarthLocation, SkyCoord, solar_system_ephemeris, get_body, AltAz
 from astropy.time import Time
@@ -213,13 +214,13 @@ ax2.xaxis.set_major_locator(mdates.HourLocator(interval=4))
 ax2.axhline(0, color='r', linestyle='--', label='Horizon')
 ax2.set_xlabel('Time')
 ax2.set_ylabel('Altitude')
-ax2.legend(frameon=True)
+ax2.legend(frameon=True, fontsize=8)
 ax2.grid(True)
 
 # Displaying image
 img = mpimg.imread('sky-plot.png')
-# flipped_img = np.flipud(img)  # Flip image vertically
-ax3.imshow(img)
+flipped_img = np.flipud(img)  # Flip image vertically
+ax3.imshow(flipped_img)
 ax3.axis('off')  # Hide axes for the image
 
 day_of_month = observe_time.datetime.day  # Get day of the month
